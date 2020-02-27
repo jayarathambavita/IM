@@ -1,0 +1,13 @@
+<div class="box">
+<form>
+    <label for="fname">Name</label>
+    <input type="text" name="name" placeholder="name.." [(ngModel)]="post.name" required>
+
+    <label for="lname">status</label>
+    <input type="text" name="name" placeholder="name.." [(ngModel)]="post.status" required>
+    <label for="lname">Image : </label>
+    <input type="file" name="name" placeholder="name.." [(ngModel)]="post.image" required>
+  
+    <input (click)="addPost()" type="submit" value="Post">
+  </form>
+</div>

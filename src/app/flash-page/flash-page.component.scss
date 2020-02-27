@@ -1,0 +1,106 @@
+.back{
+
+    width: 100vw;
+    height: 100vh;
+    background-image: url(./../../assets/images/1.jpg);
+    z-index: -10;
+    // object-fit: cover;
+    background-size: inherit;
+    background-position:center ;
+    opacity: 0.8;
+}
+
+.container{
+    text-align: center;
+    padding: 16px;
+    background-color: rgba(0, 0, 0, 0.534);
+    z-index: 10;
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    
+}
+
+.topic{
+    font-size: 50px;
+    color: white;
+    font-family: IAldhabi;
+    padding: 2px;
+}
+
+.subt{
+    font-family: Ink Free;
+    font-size: 36px;
+}
+
+.button{
+    padding: 56px;
+    margin: 6px;
+    border-radius: 100%;
+    background-color: rgba(245, 222, 179, 0.418);
+}
+
+.btn {
+    margin: 10px;
+    position: relative;
+    color: white;
+    width: 256px;
+    height: 64px;
+    line-height: 64px;
+    transition: all 0.3s;
+    span {
+      transition: all 0.3s;
+      tranform: scale(1, 1);
+    }
+  }
+  
+  .btn::before, .btn::after {
+    content: '';
+    position: absolute;
+    transition: all 0.3s;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  
+
+.btn-two::before, .btn-two::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+      height: 100%;
+    bottom: 0;
+      left: 0;
+      z-index: 1;
+    transition: all 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .btn-two:hover::after {
+    animation-name: rotatecw;
+    animation-duration: 2s;
+  }
+  .btn-two:hover::before {
+    animation-name: rotateccw; 
+    animation-duration: 3s;
+  }
+  .btn-two:hover::after, .btn-two:hover::before {
+    left: 96px;
+    width: 64px;
+    
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  
+  @keyframes rotatecw {
+      from {transform: rotate(0deg);}
+      to {transform: rotate(360deg);}
+  }
+  
+  @keyframes rotateccw {
+      from {transform: rotate(0deg);}
+      to {transform: rotate(-360deg);}
+  }
+  

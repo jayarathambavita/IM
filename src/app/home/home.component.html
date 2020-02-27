@@ -1,0 +1,68 @@
+<mat-toolbar color="primary" class="mat-elevation-z6">
+  <span>VizMotors</span>
+</mat-toolbar>
+
+<!-- <h2>CSS Template using Flexbox</h2>
+<p>In this example, we have created a header, three unequal columns and a footer. On smaller screens, the columns will stack on top of each other. Resize the browser window to see the responsive effect.</p>
+<p><strong>Note:</strong> Flexbox is not supported in Internet Explorer 10 and earlier versions.</p>
+
+<div class="header">
+  <h2>Header</h2>
+</div> -->
+
+<div class="row">
+  <div class="column side">
+    <div *ngIf="showLB" routerLink="/login" class="side-button-top">
+      <p>Login</p>
+    </div>
+    <div routerLink="/addPost" class="side-button">
+      Add post
+    </div>
+    <div (click)="getItems()" class="side-button">
+      load Items
+    </div>
+    <div  *ngIf="showLB" routerLink="/register"  class="side-button">
+       register
+    </div>
+    <div  *ngIf="showLO" (click)="logout()"  class="side-button">
+      logout
+   </div>
+
+  </div>
+
+
+  <div class="column middle" style="background-color:#bbb;">
+    <div class="cards" *ngFor="let item of dataItem">
+      <mat-card class="example-card">
+        <mat-card-header>
+
+          <img mat-card-avatar class="example-header-image avatar" src={{item.profilePic}}>
+
+          <mat-card-title>{{item.category}}</mat-card-title>
+          <mat-card-subtitle>{{item.name}}</mat-card-subtitle>
+        </mat-card-header>
+        <img class="image" src={{item.image}}>
+
+
+
+        <mat-card-content>
+          <p class="content">
+           {{item.status}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+
+
+  </div>
+  <div class="column side" style="background-color:#ccc;">Column</div>
+</div>
+<!--
+<div class="footer">
+  <p>Footer</p>
+</div> -->
