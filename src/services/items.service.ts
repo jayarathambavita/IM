@@ -52,6 +52,6 @@ export class ItemsService {
   }
 
   saveItem(item: FeedItem) {
-    this.db.list('/feedItem').push(item)
+   return this.db.list('/feedItem').push(item)
   }
 }

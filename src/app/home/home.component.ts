@@ -10,18 +10,17 @@ import { AuthenticationService } from '../../services/authentication.service'
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  showLB = true;
-  showLO = false;
-  private router: Router;
+ showLB = true ;
+ showLO = false ;
 
+  constructor( public itemService: ItemsService,private AS: AuthenticationService,private router:Router) { }
   private dataItem: any[] = [];
+
   public logo = "https://is3-ssl.mzstatic.com/image/thumb/Purple113/v4/76/38/c7/7638c736-42c6-1d91-e369-d23662a542de/source/512x512bb.jpg"
   sample: string;
   sampleimg: string[] = [];
 
-  constructor(public itemService: ItemsService, private AS: AuthenticationService) {
-
-  }
+  
   ngOnInit() {
 
     // this.sampleimg.push("https://c.ndtvimg.com/2019-12/04jo3vos_mg-zs-ev-review_625x300_23_December_19.jpg",
@@ -54,16 +53,25 @@ export class HomeComponent implements OnInit {
       }
     );
 
-  }
 
+ }
+addPost(){
+  if(localStorage.getItem('currentUser')){
+  this.router.navigateByUrl('/addPost')
+  }else{
+    alert('please login First');
+     this.router.navigateByUrl('/login')
+  }
+}
 
-  reg() {
-    this.router.navigateByUrl('register');
-  }
-  logout() {
-    this.AS.logout();
-    console.log("Log Out");
-    this.showLO = false;
-    this.showLB = true;
-  }
+ reg(){
+  this.router.navigate(['/register']);
+ }
+ logout(){
+   this.AS.logout();
+console.log("Log Out");
+alert('Logout Succefully')
+   this.showLO = false;
+   this.showLB = true;
+ }
 }

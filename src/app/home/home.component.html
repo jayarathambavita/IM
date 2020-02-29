@@ -15,13 +15,13 @@
     <div *ngIf="showLB" routerLink="/login" class="side-button-top">
       <p>Login</p>
     </div>
-    <div routerLink="/addPost" class="side-button">
+    <div (click)="addPost()" class="side-button">
       Add post
     </div>
-    <!-- <div (click)="getItems()" class="side-button">
+ <!-- <div (click)="getItems()" class="side-button">
       load Items
     </div> -->
-    <div  *ngIf="showLB" routerLink="/register"  class="side-button">
+    <div  *ngIf="showLB" (click)="reg()"  class="side-button">
        register
     </div>
     <div  *ngIf="showLO" (click)="logout()"  class="side-button">
