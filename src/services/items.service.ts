@@ -30,18 +30,24 @@ export class ItemsService {
 
   getItem() {
 
-return new Promise((resolve,reject)=>{
+    return new Promise((resolve, reject) => {
 
-        this.db.database.ref('feedItem').orderByKey().on('child_added', (childSnapshot, prevChildSnapshot) => {
+      this.db.database.ref('feedItem').orderByKey().on('child_added', (childSnapshot, prevChildSnapshot) => {
 
-          this.feedItems.set(childSnapshot.key, childSnapshot)
+        this.feedItems.set(childSnapshot.key, childSnapshot)
+        resolve(this.feedItems);
+      }, err => {
+        reject(err);
+      }
 
-          }
-          );
-          resolve(this.feedItems);
+      );
 
-   })
-// return this.db.list('feedItem').snapshotChanges();
+
+
+
+    }
+    )
+    // return this.db.list('feedItem').snapshotChanges();
 
   }
 
