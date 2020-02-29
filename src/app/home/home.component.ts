@@ -12,9 +12,10 @@ import {AuthenticationService} from '../../services/authentication.service'
 export class HomeComponent implements OnInit {
  showLB = true ;
  showLO = false ;
-  private router: Router ;
-  constructor( public itemService: ItemsService,private AS: AuthenticationService) { }
+
+  constructor( public itemService: ItemsService,private AS: AuthenticationService,private router:Router) { }
   private dataItem: any[] = [];
+
   public logo = "https://is3-ssl.mzstatic.com/image/thumb/Purple113/v4/76/38/c7/7638c736-42c6-1d91-e369-d23662a542de/source/512x512bb.jpg"
 sample : string;
 sampleimg: string[] = [];
@@ -50,15 +51,24 @@ async getItems() {
      }
     );
 
- }
 
+ }
+addPost(){
+  if(localStorage.getItem('currentUser')){
+  this.router.navigateByUrl('/addPost')
+  }else{
+    alert('please login First');
+     this.router.navigateByUrl('/login')
+  }
+}
 
  reg(){
-  this.router.navigateByUrl('register');
+  this.router.navigate(['/register']);
  }
  logout(){
    this.AS.logout();
 console.log("Log Out");
+alert('Logout Succefully')
    this.showLO = false;
    this.showLB = true;
  }

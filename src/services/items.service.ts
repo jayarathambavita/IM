@@ -46,6 +46,6 @@ return new Promise((resolve,reject)=>{
   }
 
   saveItem(item: FeedItem) {
-    this.db.list('/feedItem').push(item)
+   return this.db.list('/feedItem').push(item)
   }
 }

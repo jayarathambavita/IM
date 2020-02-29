@@ -28,7 +28,9 @@ export class FlashPageComponent implements OnInit {
   home(){
     this.router.navigate(['/home']);
   }
-  
+  login(){
+    this.router.navigate(['/login']);
+  }
 
 }
 
